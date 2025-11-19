@@ -14,14 +14,14 @@ int main()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
   // 创建窗口对象
-  GLFWwindow *window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(800, 600, "rage", NULL, NULL);
   if (window == NULL)
   {
     std::cout << "Failed to create GLFW window" << std::endl;
     glfwTerminate();
     return -1;
   }
-  glfwMakeContextCurrent(window);
+  glfwMakeContextCurrent(window); // 通知glfw将当前窗口的上下文设置为当前线程的上下文
 
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
   {
@@ -40,7 +40,7 @@ int main()
 
     // 渲染指令
     // ...
-    glClearColor(25.0 / 255.0, 25.0 / 255.0, 25.0 / 255.0, 1.0);
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     glfwSwapBuffers(window);
